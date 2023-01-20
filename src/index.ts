@@ -1,4 +1,5 @@
-const nome = process.argv[2]
+import { acessarProductId, acessarProductsName, createPurchase, getAllPurchasesFromUserId} from "./database";
 
-console.log(`Olá, meu nome é ${nome}`)
+console.log(acessarProductsName("computador"));
+console.log(createPurchase("1", "1", 3, 15));
 
