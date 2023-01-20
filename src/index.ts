@@ -1,8 +1,11 @@
 const nome = process.argv[2]
 
 console.log(`Olá, meu nome é ${nome}`)
-// a
-// dv
-// .bs
+console.log(`Olá, meu nome é ${nome}`)
+ 
+// adfqe
+// c
+// qec
 
-// dfcwev
+// c
+// w
