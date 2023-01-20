@@ -3,6 +3,7 @@ export type TUser = {
     email:string,
     password: string,
 }
+//O
 export type TProduct = {
     id: string,
     name:string,
