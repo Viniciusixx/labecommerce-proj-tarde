@@ -1,4 +1,4 @@
-
+//exercicio par ou impar
 const escolhaJogador=process.argv[2]
 const numeroJogador=process.argv[3]
 console.log(`você escolheu ${escolhaJogador}`)
