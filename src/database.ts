@@ -1,83 +1,83 @@
-import { appendFile } from "fs";
-import { TUser, TProduct, TPurchase, CATEGORY_PURCHASE} from "./type";
-//comecando
+import { TUser, TProduct, TPurchase , PRODUCT_CATEGORY } from "./type"
+
 export const users : TUser[] = [
     {
         id: "1",
-        email:"pessoa1@gmail.com",
-        password: "e28y72d", 
+        email: "gleice@mail.com",
+        password: "a123"
     },
     {
         id: "2",
-        email:"pessoa2@gmail.com",
-        password: "2ofd9h2", 
-    }
-]
-export const products : TProduct[] =[
-    {
-        id: "1",
-        name:"computador",
-        price: 5000,
-        category: CATEGORY_PURCHASE.ACCESSORIES,
-    },
-    {
-        id: "2",
-        name:"calcado",
-        price: 200,
-        category: CATEGORY_PURCHASE.CLOTHES_AND_SHOES,
+        email: "paulo@mail.com",
+        password: "a456"
     },
     {
         id: "3",
-        name:"mouse",
-        price: 20,
-        category: CATEGORY_PURCHASE.ELECTRONICS,
-    },
-]
-export const purchases : TPurchase[] =[
+        email:"Ricardoaks@gmail.com",
+        password: "a283u"
+    }
+];
+
+export const products : TProduct[] = [
     {
-        userId:"1",
-    productId:"computador",
-    quantity:40,
-    totalPrice:120,
-    },
-    {
-        userId:"2",
-    productId:"calcado",
-    quantity:30,
-    totalPrice:90,
+        id: "1",
+        name: "Teclado",
+        price: 7,
+        category: PRODUCT_CATEGORY.ACCESSORIES
     },
     {
-        userId:"3",
-    productId:"mouse",
-    quantity:30,
-    totalPrice:90,
+        id: "2",
+        name: "Fone",
+        price: 1,
+        category: PRODUCT_CATEGORY.ACCESSORIES
     },
+    {
+        id: "3",
+        name: "Mouse",
+        price: 5,
+        category: PRODUCT_CATEGORY.ACCESSORIES
+    }
 ]
 
-export function createUser(id:string, email:string, password: string): string{
+export const purchases : TPurchase[] = [
+    {
+        userId: "1",
+        productId: "1",
+        quantity: 1,
+        totalPrice: 5
+    },
+    {
+        userId: "2",
+        productId: "2",
+        quantity: 2,
+        totalPrice: 30
+    }
+]
+
+export function createUser(id : string, email : string, password : string) : string{
     users.push({
         id,
         email,
         password
-    })
-    return("Cadastro realizado com Sucesso")
+    });
+    return ("Cadastro realizado com sucesso");
 }
 
-export function getAllUsers(): TUser[]{
-    return users
+export function getAllUsers() : TUser[]{
+    return users;
 }
 
-export function createProduct(id: string, name: string, price: number, category: CATEGORY_PURCHASE): string{
+export function createProduct(id : string, name : string, price : number, category : PRODUCT_CATEGORY) : string{
     products.push({
         id,
         name,
         price,
         category
     })
-    return ("Produto criado com sucesso")
+    return ("Produto criado com sucesso");
 }
 
-export function acessarProducts(): TProduct[]{
+export function acessarProducts() : TProduct[]{
     return products;
 }
 
@@ -88,19 +88,17 @@ export function acessarProductId(id : string) : (undefined | TProduct){
 export function acessarProductsName(q : string) : TProduct[]{
     return products.filter(product => product.name.toLowerCase().includes(q.toLowerCase()));
 }
-    
-export function createPurchase(userId : string, productId : string, quantity : number, totalPrice : number): string{
-    
+
+export function createPurchase(userId : string, productId : string, quantity : number, totalPrice : number) : string{
     purchases.push({
-    userId,
-    productId,
-    quantity,
-    totalPrice
+        userId,
+        productId,
+        quantity,
+        totalPrice    
     })
     return ("Compra realizada com sucesso");
 }
 
-export function getAllPurchasesFromUserId(userIdToSearch: string): TPurchase[]{
+export function getAllPurchasesFromUserId(userIdToSearch : string) : TPurchase[]{
     return purchases.filter(purchase => purchase.userId === userIdToSearch);
 }
-
